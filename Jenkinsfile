@@ -4,7 +4,7 @@ pipeline {
         maven 'M2_HOME'
     }
     environment {
-        registry = '076892551558.dkr.ecr.us-east-1.amazonaws.com/geolocation_ecr_rep'
+        registry = '792069373652.dkr.ecr.us-east-1.amazonaws.com/carolle'
         dockerimage = '' 
     }
     stages {
@@ -35,8 +35,8 @@ pipeline {
         stage('Pushing to ECR') {
             steps{
                 script {
-                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 076892551558.dkr.ecr.us-east-1.amazonaws.com'
-                    sh 'docker push 076892551558.dkr.ecr.us-east-1.amazonaws.com/geolocation_ecr_rep:latest'
+                    sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 792069373652.dkr.ecr.us-east-1.amazonaws.com'
+                    sh 'docker push 792069373652.dkr.ecr.us-east-1.amazonaws.com/carolle'
                 }
             }
         }
