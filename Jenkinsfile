@@ -4,7 +4,7 @@ pipeline {
         maven 'M2_HOME'
     }
     environment {
-        registry = '792069373652.dkr.ecr.us-east-1.amazonaws.com/carolle'
+        registry = '792069373652.dkr.ecr.us-east-2.amazonaws.com/carolle'
         dockerimage = '' 
     }
     stages {
