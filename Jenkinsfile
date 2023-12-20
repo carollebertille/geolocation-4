@@ -4,6 +4,8 @@ pipeline {
         maven 'M2_HOME'
     }
     environment {
+        IMAGE_NAME = "geolocation"
+        APP_CONTAINER_PORT = "8082"
         registry = '792069373652.dkr.ecr.us-east-2.amazonaws.com/carolle'
         dockerimage = '' 
     }
@@ -13,14 +15,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Hermann90/geolocation.git'
             }
         }
-        stage('Code Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('Test') {
+        stage('Code test') {
             steps {
                 sh 'mvn test'
+            }
+        }
+        stage('Code build') {
+            steps {
+                sh 'mvn clean package'
             }
         }
         // Building Docker images
